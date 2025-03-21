@@ -86,7 +86,7 @@ namespace _30_2
         /// <returns></returns>
         public override double CirculationCost()
         {
-            return Circulation * sheetPrice * sheets;
+            return Circulation * SheetPrice * Sheets;
         }
 
         /// <summary>
@@ -94,8 +94,23 @@ namespace _30_2
         /// </summary>
         public override void Print()
         {
-            Console.WriteLine($"Название: {Name}\tТираж: {circulation}\t" +
-                $"Кол-во листов: {Sheets}\tСтоимость листа: {SheetPrice}");
+            Console.WriteLine($"Печатная продукция - газета {Name}\n" +
+                $"Количество листов - {Sheets}\tСтоимость листа - {SheetPrice} руб.\tТираж: {Circulation} экз.\n" +
+                $"Стоимость тиража: {CirculationCost()}");
+        }
+
+        public static Newspaper Input()
+        {
+            Console.WriteLine("Создание новой газеты.");
+            Console.Write("Название: ");
+            string name = Console.ReadLine();
+            Console.Write("Тираж: ");
+            int circulation = int.Parse(Console.ReadLine());
+            Console.Write("Кол-во листов: ");
+            int sheets = int.Parse(Console.ReadLine());
+            Console.Write("Стоимость листа: ");
+            double sheetPrice = double.Parse(Console.ReadLine());
+            return new Newspaper(name, circulation, sheets, sheetPrice);
         }
     }
 }

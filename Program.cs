@@ -10,14 +10,16 @@ namespace _30_2
     {
         static void Main(string[] args)
         {
-            List<PrintedMatter> printedMatters = new List<PrintedMatter>(4);
-            printedMatters.Add(new Magazine("Журнал", 100, 5.25));
-            printedMatters.Add(new Newspaper("Газета", 2500, 4, 0.3));
+            List<PrintedMatter> printedMatters = new List<PrintedMatter>();
+            printedMatters.Add(Magazine.Input());
+            printedMatters.Add(Magazine.Input());
+            printedMatters.Add(Newspaper.Input());
+            Console.WriteLine();
 
             foreach(var matter in printedMatters)
             {
                 matter.Print();
-                Console.WriteLine($"Стоимость тиража: {matter.CirculationCost()}");
+                Console.WriteLine();
             }
 
             Console.ReadKey(true);

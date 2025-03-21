@@ -60,8 +60,21 @@ namespace _30_2
         /// </summary>
         public override void Print()
         {
-            Console.WriteLine($"Название: {Name}\tТираж: {circulation}\t" +
-                $"Цена: {Price}");
+            Console.WriteLine($"Печатная продукция - журнал {Name}\n" +
+                $"Тираж - {Circulation} экз.\tЦена 1-го экземпляра - {Price} руб.\n" +
+                $"Стоимость тиража: {CirculationCost()}");
+        }
+
+        public static Magazine Input()
+        {
+            Console.WriteLine("Создание нового журнала.");
+            Console.Write("Название: ");
+            string name = Console.ReadLine();
+            Console.Write("Тираж: ");
+            int cirlulation = int.Parse(Console.ReadLine());
+            Console.Write("Цена: ");
+            int price = int.Parse(Console.ReadLine());
+            return new Magazine(name, cirlulation, price);
         }
     }
 }
