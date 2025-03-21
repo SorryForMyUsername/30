@@ -110,6 +110,7 @@ namespace _30_2
             int sheets = int.Parse(Console.ReadLine());
             Console.Write("Стоимость листа: ");
             double sheetPrice = double.Parse(Console.ReadLine());
+            Console.WriteLine();
             return new Newspaper(name, circulation, sheets, sheetPrice);
         }
     }

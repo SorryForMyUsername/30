@@ -74,6 +74,7 @@ namespace _30_2
             int cirlulation = int.Parse(Console.ReadLine());
             Console.Write("Цена: ");
             int price = int.Parse(Console.ReadLine());
+            Console.WriteLine();
             return new Magazine(name, cirlulation, price);
         }
     }
