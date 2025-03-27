@@ -61,12 +61,12 @@ namespace _30_2
         public override void Print()
         {
             Console.WriteLine($"Печатная продукция - журнал {Name}\n" +
-                $"Тираж - {Circulation} экз.\tЦена 1-го экземпляра - {Price} руб.\n" +
-                $"Стоимость тиража: {CirculationCost()}");
+                $"Тираж - {Circulation} экз.\tЦена 1-го экземпляра - {Price} руб.");
         }
 
-        public static Magazine Input()
+        public static Magazine Enter()
         {
+            Console.Clear();
             Console.WriteLine("Создание нового журнала.");
             Console.Write("Название: ");
             string name = Console.ReadLine();

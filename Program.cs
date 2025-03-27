@@ -10,17 +10,35 @@ namespace _30_2
     {
         static void Main(string[] args)
         {
-            List<PrintedMatter> printedMatters = new List<PrintedMatter>();
-            printedMatters.Add(Magazine.Input());
-            printedMatters.Add(Magazine.Input());
-            printedMatters.Add(Newspaper.Input());
-            Console.WriteLine();
-
-            foreach(var matter in printedMatters)
+            List<PrintedMatter> pressa = new List<PrintedMatter>();
+            bool flag = true;
+            do
             {
-                matter.Print();
-                Console.WriteLine();
-            }
+                Console.Write("Введите название печатной продукции: ");
+                string metka = Console.ReadLine();
+                switch (metka)
+                {
+                    case "m":
+                    case "M":
+                        pressa.Add(Magazine.Enter());
+                        break;
+                    case "n":
+                    case "N":
+                        pressa.Add(Newspaper.Enter());
+                        break;
+                    case "e":case "E":
+                        flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("Нет такой печатной продукции");
+                        break;
+                }
+                foreach (PrintedMatter p in pressa)
+                {
+                    p.Print();
+                    Console.WriteLine("Стоимость тиража: " + p.CirculationCost() + " руб.\n");
+                }
+            } while (flag);
 
             Console.ReadKey(true);
         }

@@ -18,11 +18,11 @@ namespace _30_2
         /// <summary>
         /// поле Количество листов
         /// </summary>
-        private int sheets;
+        private int sheetsCount;
         /// <summary>
         /// поле Стоимость листа
         /// </summary>
-        private double sheetPrice;
+        private double sheetCost;
 
         /// <summary>
         /// Свойство Тираж
@@ -32,32 +32,32 @@ namespace _30_2
             get { return circulation; }
             set
             {
-                if (value < 0) circulation = 0;
+                if (value < 0) Console.WriteLine("Недопустимое значение!");
                 else circulation = value;
             }
         }
         /// <summary>
         /// Свойство Количество листов
         /// </summary>
-        public int Sheets
+        public int SheetsCount
         {
-            get { return sheets; }
+            get { return sheetsCount; }
             set
             {
-                if (value < 0) sheets = 0;
-                else sheets = value;
+                if (value < 0) Console.WriteLine("Недопустимое значение!");
+                else sheetsCount = value;
             }
         }
         /// <summary>
         /// Свойство Стоимость листа
         /// </summary>
-        public double SheetPrice
+        public double SheetCost
         {
-            get { return sheetPrice; }
+            get { return sheetCost; }
             set
             {
-                if(value < 0) sheetPrice = 0;
-                else sheetPrice = value;
+                if(value < 0) sheetCost = 0.0;
+                else sheetCost = value;
             }
         }
 
@@ -72,12 +72,12 @@ namespace _30_2
         /// <param name="name">Название</param>
         /// <param name="cirlulation">Тираж</param>
         /// <param name="sheets">Количество листов</param>
-        /// <param name="sheetPrice">Стоимость листа</param>
-        public Newspaper(string name, int cirlulation, int sheets, double sheetPrice) : base(name)
+        /// <param name="sheetCost">Стоимость листа</param>
+        public Newspaper(string name, int cirlulation, int sheets, double sheetCost) : base(name)
         {
             Circulation = cirlulation;
-            Sheets = sheets;
-            SheetPrice = sheetPrice;
+            SheetsCount = sheets;
+            SheetCost = sheetCost;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace _30_2
         /// <returns></returns>
         public override double CirculationCost()
         {
-            return Circulation * SheetPrice * Sheets;
+            return Circulation * SheetCost * SheetsCount;
         }
 
         /// <summary>
@@ -95,12 +95,13 @@ namespace _30_2
         public override void Print()
         {
             Console.WriteLine($"Печатная продукция - газета {Name}\n" +
-                $"Количество листов - {Sheets}\tСтоимость листа - {SheetPrice} руб.\tТираж: {Circulation} экз.\n" +
-                $"Стоимость тиража: {CirculationCost()}");
+                $"Количество листов - {SheetsCount}\tСтоимость 1-го листа - {SheetCost} руб.\t" +
+                $"Тираж газеты составляет {Circulation} экз.");
         }
 
-        public static Newspaper Input()
+        public static Newspaper Enter()
         {
+            Console.Clear();
             Console.WriteLine("Создание новой газеты.");
             Console.Write("Название: ");
             string name = Console.ReadLine();
